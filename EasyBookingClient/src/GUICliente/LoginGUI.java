@@ -1,4 +1,4 @@
-package GUI;
+package GUICliente;
 
 public class LoginGUI {
 
