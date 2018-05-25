@@ -1,14 +1,5 @@
 package Cliente;
 
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-
-import ControllerCliente.UsuarioController;
-import ControllerCliente.VueloController;
-import client.controller.ControllerCancion;
-import client.controller.ControllerPago;
-import client.controller.ControllerUsuario;
-import client.gui.GUIMenu;
 import RemoteCliente.ServiceLocator;
 
 public class Main {
