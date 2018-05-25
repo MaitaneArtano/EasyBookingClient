@@ -7,23 +7,28 @@ import Remote.IRemoteFacade;
 
 public class ServiceLocator 
 {
-	
 	private IRemoteFacade service;
+	
 
-	public void setService(String ip, String port, String serverName) {
-		if (System.getSecurityManager() == null) {
+	public void setService(String ip, String port, String serverName)
+	{
+		if (System.getSecurityManager() == null)
+		{
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		
-		try {		
+		try
+		{		
 			String URL = "//" + ip + ":" + port + "/" + serverName;
 			this.service = (IRemoteFacade) Naming.lookup(URL);
-		} catch (Exception ex) {
+		} catch (Exception ex)
+		{
 			System.err.println("# Error locating remote façade: " + ex);
 		}		
 	}
 
-	public IRemoteFacade getService() {
+	public IRemoteFacade getService()
+	{
 		return this.service;
 	}
 }
