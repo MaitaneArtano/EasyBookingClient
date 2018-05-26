@@ -1,5 +1,7 @@
 package ControllerCliente;
 
+import java.rmi.RemoteException;
+
 import RemoteCliente.ServiceLocator;
 
 public class UsuarioController
@@ -16,8 +18,12 @@ public class UsuarioController
 		return false;
 	}
 	
-	public void signin(String email)
+	public boolean signin(String email)//zeba contrseña ez???
 	{
+		
+		return false;
 		//Conectarse con servidor externo
 	}
+	
+	
 }
