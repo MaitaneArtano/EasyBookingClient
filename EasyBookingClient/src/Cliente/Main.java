@@ -2,6 +2,7 @@ package Cliente;
 
 import ControllerCliente.UsuarioController;
 import ControllerCliente.VueloController;
+import GUICliente.MenuGUI;
 import RemoteCliente.ServiceLocator;
 
 public class Main {
@@ -14,8 +15,8 @@ public class Main {
 		VueloController rlc = new VueloController(serviceLocator);
 		
 		
-		//GUIMenu mgui = new GUIMenu(irc, rlc, p);
-		//mgui.setVisible(true);
+		MenuGUI mgui = new MenuGUI(irc, rlc);
+		mgui.setVisible(true);
 		
 		
 	}
