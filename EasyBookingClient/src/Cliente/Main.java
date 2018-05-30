@@ -14,9 +14,9 @@ public class Main {
 	{
 		ServiceLocator serviceLocator = new ServiceLocator();
 		serviceLocator.setService(args[0], args[1],  args[2]);
+		
 		UsuarioController irc = new UsuarioController(serviceLocator);
 		VueloController rlc = new VueloController(serviceLocator);
-		
 		
 		MenuGUI mgui = new MenuGUI(irc, rlc);
 		mgui.setVisible(true);

@@ -24,7 +24,7 @@ public class ServiceLocator
 			this.service = (IRemoteFacade) Naming.lookup(URL);
 		} catch (Exception ex)
 		{
-			System.err.println("# Error locating remote façade: " + ex);
+			System.err.println("# Error locating remote facade: " + ex);
 		}		
 	}
 
