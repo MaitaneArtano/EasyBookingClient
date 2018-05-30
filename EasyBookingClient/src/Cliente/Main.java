@@ -17,8 +17,7 @@ public class Main {
 		
 		MenuGUI mgui = new MenuGUI(irc, rlc);
 		mgui.setVisible(true);
-		
-		
+
 	}
 
 }

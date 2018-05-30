@@ -5,6 +5,7 @@ import java.rmi.RMISecurityManager;
 
 import Remote.IRemoteFacade;
 
+@SuppressWarnings("deprecation")
 public class ServiceLocator 
 {
 	private IRemoteFacade service;

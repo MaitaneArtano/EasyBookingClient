@@ -1,7 +1,5 @@
 package ControllerCliente;
 
-import java.rmi.RemoteException;
-
 import RemoteCliente.ServiceLocator;
 
 public class UsuarioController
