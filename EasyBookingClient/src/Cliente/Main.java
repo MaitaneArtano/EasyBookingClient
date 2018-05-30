@@ -5,6 +5,9 @@ import ControllerCliente.VueloController;
 import GUICliente.MenuGUI;
 import RemoteCliente.ServiceLocator;
 
+//sign in --> entrar por primera vez
+//log in --> cuando ya tienes usuario 
+
 public class Main {
 
 	public static void main(String[] args) 

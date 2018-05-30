@@ -20,14 +20,14 @@ import javax.swing.JRadioButton;
 import javax.swing.JSeparator;
 import javax.swing.ButtonGroup;
 
-public class MenuGUI extends JFrame {
+public class MenuGUI extends JFrame 
+{
+	private static UsuarioController usuarioC;
+	private static VueloController vueloC;
 
 	private JPanel contentPane;
 	private JTextField textFieldUsuario;
 	private JTextField textFieldContraseña;
-	
-	private static UsuarioController usuarioC;
-	private static VueloController vueloC;
 	private JTextField textFieldUsuarioFace;
 	private JTextField textFieldContraseñaFace;
 	private JTextField textFieldUsuarioGoogle;
@@ -53,7 +53,9 @@ public class MenuGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MenuGUI(UsuarioController usuarioC, VueloController vueloC) {
+	public MenuGUI(UsuarioController usuarioC, VueloController vueloC) 
+	{
+		this.usuarioC = usuarioC;
 		setTitle("EASYBOOKING");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 852, 613);
@@ -88,12 +90,7 @@ public class MenuGUI extends JFrame {
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				boolean correcto;
-				String email=textFieldUsuario.getText();
-				String contraseña=textFieldContraseña.getText();
 				
-				
-				//hemen ya directo base datosen a ver badaon beidatukou y si es true buscarreko pagina
 			}
 		});
 		
@@ -127,27 +124,28 @@ public class MenuGUI extends JFrame {
 		contentPane.add(textFieldContraseñaFace);
 		
 		JButton btnRegisFace = new JButton("REGISTRARME");
-		btnRegisFace.addActionListener(new ActionListener() {
+		btnRegisFace.addActionListener(new ActionListener() 
+		{
 			public void actionPerformed(ActionEvent e) {
 				
 				boolean correcto;
 				String email=textFieldUsuarioFace.getText();
 				String contraseña=textFieldContraseñaFace.getText();
-				//hemen se supone que authorisation ta horrea jungoala nolabait ta true bada buscarreko pagina
-			/*	
-				correcto=usuarioC.signin(email, contraseña);
+		
 				
-				if(correcto==true)
+					correcto = usuarioC.signin(email, contraseña);
+				
+				if(correcto=true)
 				{
 					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
 					JOptionPane.showMessageDialog(null, "Registro exitoso");
 				}
+				
 				else
 				{
 					JOptionPane.showMessageDialog(null, "Registro fallido. Vuelva a intentarlo");
 				
 				}
-				*/
 			}
 		});
 		btnRegisFace.setBounds(354, 320, 162, 29);

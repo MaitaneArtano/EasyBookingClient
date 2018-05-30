@@ -1,5 +1,7 @@
 package ControllerCliente;
 
+import java.rmi.RemoteException;
+
 import RemoteCliente.ServiceLocator;
 
 public class UsuarioController
@@ -13,15 +15,21 @@ public class UsuarioController
 	
 	public boolean login(String email, String password)
 	{
-		return false;
+		return true;
 	}
 	
-	public boolean signin(String email)//zeba contrseña ez???
+	
+
+	public boolean signin(String email, String password)
 	{
+		try {
+			return this.serviceLocator.getService().signin(email, password);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			System.err.println("# Error creating usuario: " +e);
+			return false;
+		}
 		
-		return false;
-		//Conectarse con servidor externo
+		
 	}
-	
-	
 }
