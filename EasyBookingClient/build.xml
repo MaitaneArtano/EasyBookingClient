@@ -7,7 +7,7 @@
 	<property name="rmiregistry.port" value="1099"/>
 	<property name="rmiregistry.IP" value="127.0.0.1"/> 
 	<property name="server.Usuario" value="UsuarioController"/>
-	<property name="server.Vuelo" value="VueloController"/>
+	
 	
 	<property name="policy.file" location="security/java.policy"/>	
 
@@ -31,9 +31,9 @@
 	<target name="client" description="Runs Client program">
 			<java classname="Cliente.Main" classpathref="classpath" fork="true">
 				<jvmarg value="-Djava.security.policy=${policy.file}"/>			
-	        	<arg value="${registry.IP}"/> 
-		 		<arg value="${registry.port}"/> 
-				<arg value="${server.Name}"/> 
+	        	<arg value="${rmiregistry.IP}"/> 
+		 		<arg value="${rmiregistry.port}"/> 
+				<arg value="${server.Usuario}"/> 
 	        </java>
 	 </target>
 </project>
