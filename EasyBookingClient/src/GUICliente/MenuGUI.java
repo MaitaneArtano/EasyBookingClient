@@ -90,6 +90,25 @@ public class MenuGUI extends JFrame
 		btnEntrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				boolean correcto;
+				String email=textFieldUsuario.getText();
+				String contrasena=textFieldContraseña.getText();
+				
+				correcto=usuarioC.login(email, contrasena);
+				
+				if(correcto=true)
+				{
+					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
+					JOptionPane.showMessageDialog(null, "Registro exitoso");
+					buscar.setEnabled(true);;
+				}
+				
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Registro fallido. Vuelva a intentarlo");
+				
+				}
+				
 				
 			}
 		});
@@ -139,6 +158,8 @@ public class MenuGUI extends JFrame
 				{
 					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
 					JOptionPane.showMessageDialog(null, "Registro exitoso");
+					
+					buscar.setEnabled(true);
 				}
 				
 				else

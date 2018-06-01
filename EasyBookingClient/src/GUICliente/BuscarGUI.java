@@ -9,11 +9,12 @@ import ControllerCliente.VueloController;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JSpinner;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class BuscarGUI extends JInternalFrame {
+public class BuscarGUI extends JFrame {
 
 	private UsuarioController usuarioC;
 	private VueloController vueloC;
