@@ -4,6 +4,8 @@ import java.rmi.RemoteException;
 
 import RemoteCliente.ServiceLocator;
 
+
+
 public class UsuarioController
 {
 	public ServiceLocator serviceLocator;
@@ -15,7 +17,16 @@ public class UsuarioController
 	
 	public boolean login(String email, String password)
 	{
-		return true;
+		
+		
+		boolean resultado=false;
+		try {
+			resultado = serviceLocator.getService().login(email,password);
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return resultado;
 	}
 	
 	

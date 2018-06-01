@@ -98,9 +98,11 @@ public class MenuGUI extends JFrame
 				
 				if(correcto=true)
 				{
+					setVisible(false);
 					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
 					JOptionPane.showMessageDialog(null, "Registro exitoso");
-					buscar.setEnabled(true);;
+					buscar.setVisible(true);
+					
 				}
 				
 				else
@@ -156,10 +158,12 @@ public class MenuGUI extends JFrame
 				
 				if(correcto=true)
 				{
+					
+					setVisible(false);
 					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
 					JOptionPane.showMessageDialog(null, "Registro exitoso");
 					
-					buscar.setEnabled(true);
+					buscar.setVisible(true);
 				}
 				
 				else
@@ -202,9 +206,26 @@ public class MenuGUI extends JFrame
 		buttonRegisGoogle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				boolean correcto;
 				String email=textFieldUsuarioGoogle.getText();
 				String contraseña=textFieldContraseñaGoogle.getText();
-				//hemen se supone que authorisation ta horrea jungoala nolabait ta true bada buscarreko pagina
+				
+	
+				
+				correcto = usuarioC.signin(email, contraseña);
+				
+				
+				if(correcto=true)
+				{
+					setVisible(false);
+					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
+					JOptionPane.showMessageDialog(null, "Registro exitoso");
+					
+					buscar.setVisible(true);
+				
+				}
+				
+				
 			}
 		});
 		buttonRegisGoogle.setBounds(593, 320, 162, 29);
