@@ -122,16 +122,16 @@ public class MenuGUI extends JFrame
 			{
 				
 				boolean correcto;
-				String email=textRegUsuario.getText();
-				String contraseña=textRegPass.getText();
+				String email = textRegUsuario.getText();
+				String contraseña = textRegPass.getText();
 		
 				
 					correcto = usuarioC.signin(email, contraseña);
 				
-				if(correcto=true)
+				if(correcto == true)
 				{
 					setVisible(false);
-					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
+					BuscarGUI buscar = new BuscarGUI(usuarioC, vueloC);
 					JOptionPane.showMessageDialog(null, "Registro exitoso");
 					
 					buscar.setVisible(true);
@@ -148,6 +148,16 @@ public class MenuGUI extends JFrame
 		btnRegistrar.setBounds(79, 320, 135, 29);
 		contentPane.add(btnRegistrar);
 		
+		JRadioButton rdbtnFacebook = new JRadioButton("FACEBOOK");
+		buttonGroup.add(rdbtnFacebook);
+		rdbtnFacebook.setBounds(342, 90, 155, 29);
+		contentPane.add(rdbtnFacebook);
+		
+		JRadioButton rdbtnGoogle = new JRadioButton("GOOGLE");
+		rdbtnGoogle.setSelected(true);
+		buttonGroup.add(rdbtnGoogle);
+		rdbtnGoogle.setBounds(342, 54, 155, 29);
+		contentPane.add(rdbtnGoogle);		
 		
 		JButton btnEntrar = new JButton("ENTRAR");
 		btnEntrar.addActionListener(new ActionListener() 
@@ -155,12 +165,21 @@ public class MenuGUI extends JFrame
 			public void actionPerformed(ActionEvent e)
 			{
 				boolean correcto = false;
+				int plataforma; //Sera 1 (Facebook), 2 (Google)
 				String email = textLogUsuario.getText();
 				String contrasena = textLogPass.getText();
 				
-				correcto = usuarioC.login(email, contrasena);
+				if(rdbtnFacebook.isSelected())
+				{
+					plataforma = 1;
+				}else
+				{
+					plataforma = 2;
+				}
 				
-				if(correcto=true)
+				correcto = usuarioC.login(email, contrasena, plataforma);
+				
+				if(correcto == true)
 				{
 					setVisible(false);
 					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
@@ -178,16 +197,7 @@ public class MenuGUI extends JFrame
 		btnEntrar.setBounds(354, 320, 162, 29);
 		contentPane.add(btnEntrar);	
 		
-		JRadioButton rdbtnFacebook = new JRadioButton("FACEBOOK");
-		buttonGroup.add(rdbtnFacebook);
-		rdbtnFacebook.setBounds(342, 90, 155, 29);
-		contentPane.add(rdbtnFacebook);
-		
-		JRadioButton rdbtnGoogle = new JRadioButton("GOOGLE");
-		rdbtnGoogle.setSelected(true);
-		buttonGroup.add(rdbtnGoogle);
-		rdbtnGoogle.setBounds(342, 54, 155, 29);
-		contentPane.add(rdbtnGoogle);
+
 		
 	
 	}

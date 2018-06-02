@@ -15,29 +15,28 @@ public class UsuarioController
 		this.serviceLocator = serviceLocator;
 	}
 	
-	public boolean login(String email, String password)
+	public boolean login(String email, String password, int plataforma)
 	{
-		
-		
-		boolean resultado=false;
-		try {
-			resultado = serviceLocator.getService().login(email,password);
-		} catch (RemoteException e) {
+		try 
+		{
+			return this.serviceLocator.getService().login(email, password, plataforma);
+		} catch (RemoteException e)
+		{
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.err.println("# Error logging usuario: " + e);
+			return false;
 		}
-		return resultado;
 	}
 	
-	
-
 	public boolean signin(String email, String password)
 	{
-		try {
+		try 
+		{
 			return this.serviceLocator.getService().signin(email, password);
-		} catch (RemoteException e) {
+		} catch (RemoteException e) 
+		{
 			// TODO Auto-generated catch block
-			System.err.println("# Error creating usuario: " +e);
+			System.err.println("# Error creating usuario: " + e);
 			return false;
 		}
 		
