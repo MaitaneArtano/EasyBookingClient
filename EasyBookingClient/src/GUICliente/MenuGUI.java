@@ -178,7 +178,9 @@ public class MenuGUI extends JFrame
 					plataforma = 2;
 				}
 				
-				try {
+				try 
+				{
+					System.out.println("Plataforma en MenuGUI: "+ plataforma);
 					correcto = usuarioC.login(email, contrasena, plataforma);
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block

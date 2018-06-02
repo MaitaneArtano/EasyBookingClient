@@ -18,7 +18,7 @@ public class UsuarioController
 	public boolean login(String email, String password, int plataforma) throws RemoteException
 	{
 		
-			System.out.println("Entra en usuarioController");
+			System.out.println("Entra en usuarioController. Plataforma:" + plataforma);
 			return this.serviceLocator.getService().login(email, password, plataforma);
 		
 	}
