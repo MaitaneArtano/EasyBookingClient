@@ -1,6 +1,5 @@
 package GUICliente;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -17,33 +16,39 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
-import javax.swing.JSeparator;
 import javax.swing.ButtonGroup;
 
 public class MenuGUI extends JFrame 
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private static UsuarioController usuarioC;
 	private static VueloController vueloC;
 
 	private JPanel contentPane;
-	private JTextField textFieldUsuario;
-	private JTextField textFieldContraseña;
-	private JTextField textFieldUsuarioFace;
-	private JTextField textFieldContraseñaFace;
-	private JTextField textFieldUsuarioGoogle;
-	private JTextField textFieldContraseñaGoogle;
+	private JTextField textRegUsuario;
+	private JTextField textRegPass;
+	private JTextField textLogUsuario;
+	private JTextField textLogPass;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+	public static void main(String[] args) 
+	{
+		EventQueue.invokeLater(new Runnable() 
+		{
+			public void run()
+			{
+				try
+				{
 					MenuGUI frame = new MenuGUI(usuarioC, vueloC);
 					frame.setVisible(true);
-				} catch (Exception e) {
+				} catch (Exception e)
+				{
 					e.printStackTrace();
 				}
 			}
@@ -64,101 +69,67 @@ public class MenuGUI extends JFrame
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblLogin = new JLabel("Iniciar sesion");
-		lblLogin.setBounds(46, 58, 147, 20);
+		//Etiquetas
+		JLabel lblLogin = new JLabel("Registrarme (Sign in):");
+		lblLogin.setBounds(48, 95, 147, 20);
 		contentPane.add(lblLogin);
 		
 		JLabel lblNewLabel = new JLabel("Usuario");
-		lblNewLabel.setBounds(46, 106, 69, 20);
+		lblNewLabel.setBounds(46, 128, 69, 20);
 		contentPane.add(lblNewLabel);
 		
-		textFieldUsuario = new JTextField();
-		textFieldUsuario.setBounds(46, 142, 186, 39);
-		contentPane.add(textFieldUsuario);
-		textFieldUsuario.setColumns(10);
-		
 		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setBounds(46, 197, 114, 20);
+		lblContrasea.setBounds(46, 219, 114, 20);
 		contentPane.add(lblContrasea);
 		
-		textFieldContraseña = new JTextField();
-		textFieldContraseña.setBounds(46, 233, 186, 39);
-		contentPane.add(textFieldContraseña);
-		textFieldContraseña.setColumns(10);
-		
-		JButton btnEntrar = new JButton("ENTRAR");
-		btnEntrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				boolean correcto;
-				String email=textFieldUsuario.getText();
-				String contrasena=textFieldContraseña.getText();
-				
-				correcto=usuarioC.login(email, contrasena);
-				
-				if(correcto=true)
-				{
-					setVisible(false);
-					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
-					JOptionPane.showMessageDialog(null, "Registro exitoso");
-					buscar.setVisible(true);
-					
-				}
-				
-				else
-				{
-					JOptionPane.showMessageDialog(null, "Registro fallido. Vuelva a intentarlo");
-				
-				}
-				
-				
-			}
-		});
-		
-		btnEntrar.setBounds(78, 320, 115, 29);
-		contentPane.add(btnEntrar);
-		
-		
-		JLabel lblNoTengoCuenta = new JLabel("No tengo cuenta, registrarme con...");
-		lblNoTengoCuenta.setBounds(346, 58, 275, 20);
+		JLabel lblNoTengoCuenta = new JLabel("Iniciar sesi\u00F3n (Log in):");
+		lblNoTengoCuenta.setBounds(346, 27, 275, 20);
 		contentPane.add(lblNoTengoCuenta);
 		
-		
-		
-		
 		JLabel labelUsuarioFace = new JLabel("Usuario");
-		labelUsuarioFace.setBounds(344, 128, 69, 20);
+		labelUsuarioFace.setBounds(346, 128, 69, 20);
 		contentPane.add(labelUsuarioFace);
-		
-		textFieldUsuarioFace = new JTextField();
-		textFieldUsuarioFace.setColumns(10);
-		textFieldUsuarioFace.setBounds(344, 164, 186, 39);
-		contentPane.add(textFieldUsuarioFace);
 		
 		JLabel labelContraseñaFace = new JLabel("Contrase\u00F1a");
 		labelContraseñaFace.setBounds(344, 219, 114, 20);
 		contentPane.add(labelContraseñaFace);
 		
-		textFieldContraseñaFace = new JTextField();
-		textFieldContraseñaFace.setColumns(10);
-		textFieldContraseñaFace.setBounds(344, 255, 186, 39);
-		contentPane.add(textFieldContraseñaFace);
+		//Datos
+		textRegUsuario = new JTextField();
+		textRegUsuario.setBounds(46, 167, 186, 39);
+		contentPane.add(textRegUsuario);
+		textRegUsuario.setColumns(10);
 		
-		JButton btnRegisFace = new JButton("REGISTRARME");
-		btnRegisFace.addActionListener(new ActionListener() 
+		textRegPass = new JTextField();
+		textRegPass.setBounds(46, 255, 186, 39);
+		contentPane.add(textRegPass);
+		textRegPass.setColumns(10);
+		
+		textLogUsuario = new JTextField();
+		textLogUsuario.setColumns(10);
+		textLogUsuario.setBounds(344, 164, 186, 39);
+		contentPane.add(textLogUsuario);
+		
+		textLogPass = new JTextField();
+		textLogPass.setColumns(10);
+		textLogPass.setBounds(344, 255, 186, 39);
+		contentPane.add(textLogPass);
+		
+		JButton btnRegistrar = new JButton("REGISTRARME");
+		btnRegistrar.addActionListener(new ActionListener()
 		{
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
 				
 				boolean correcto;
-				String email=textFieldUsuarioFace.getText();
-				String contraseña=textFieldContraseñaFace.getText();
+				String email=textRegUsuario.getText();
+				String contraseña=textRegPass.getText();
 		
 				
 					correcto = usuarioC.signin(email, contraseña);
 				
 				if(correcto=true)
 				{
-					
 					setVisible(false);
 					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
 					JOptionPane.showMessageDialog(null, "Registro exitoso");
@@ -173,69 +144,50 @@ public class MenuGUI extends JFrame
 				}
 			}
 		});
-		btnRegisFace.setBounds(354, 320, 162, 29);
-		contentPane.add(btnRegisFace);
+		
+		btnRegistrar.setBounds(79, 320, 135, 29);
+		contentPane.add(btnRegistrar);
 		
 		
-		JRadioButton rdbtnFacebook = new JRadioButton("FACEBOOK");
-		buttonGroup.add(rdbtnFacebook);
-		rdbtnFacebook.setBounds(342, 90, 155, 29);
-		contentPane.add(rdbtnFacebook);
+		JButton btnEntrar = new JButton("ENTRAR");
+		btnEntrar.addActionListener(new ActionListener() 
+		{
+			public void actionPerformed(ActionEvent e)
+			{
+				boolean correcto = false;
+				String email = textLogUsuario.getText();
+				String contrasena = textLogPass.getText();
 				
-		
-		JLabel labelUsuarioGoogle = new JLabel("Usuario");
-		labelUsuarioGoogle.setBounds(583, 128, 69, 20);
-		contentPane.add(labelUsuarioGoogle);
-		
-		textFieldUsuarioGoogle = new JTextField();
-		textFieldUsuarioGoogle.setColumns(10);
-		textFieldUsuarioGoogle.setBounds(583, 164, 186, 39);
-		contentPane.add(textFieldUsuarioGoogle);
-		
-		JLabel labelContraseñaGoogle = new JLabel("Contrase\u00F1a");
-		labelContraseñaGoogle.setBounds(583, 219, 114, 20);
-		contentPane.add(labelContraseñaGoogle);
-		
-		textFieldContraseñaGoogle = new JTextField();
-		textFieldContraseñaGoogle.setColumns(10);
-		textFieldContraseñaGoogle.setBounds(583, 255, 186, 39);
-		contentPane.add(textFieldContraseñaGoogle);		
-		
-		
-		JButton buttonRegisGoogle = new JButton("REGISTRARME");
-		buttonRegisGoogle.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				boolean correcto;
-				String email=textFieldUsuarioGoogle.getText();
-				String contraseña=textFieldContraseñaGoogle.getText();
-				
-	
-				
-				correcto = usuarioC.signin(email, contraseña);
-				
+				correcto = usuarioC.login(email, contrasena);
 				
 				if(correcto=true)
 				{
 					setVisible(false);
 					BuscarGUI buscar=new BuscarGUI(usuarioC, vueloC);
 					JOptionPane.showMessageDialog(null, "Registro exitoso");
-					
 					buscar.setVisible(true);
-				
 				}
 				
+				else
+				{
+					JOptionPane.showMessageDialog(null, "Registro fallido. Vuelva a intentarlo");
 				
+				}
 			}
 		});
-		buttonRegisGoogle.setBounds(593, 320, 162, 29);
-		contentPane.add(buttonRegisGoogle);
+		btnEntrar.setBounds(354, 320, 162, 29);
+		contentPane.add(btnEntrar);	
+		
+		JRadioButton rdbtnFacebook = new JRadioButton("FACEBOOK");
+		buttonGroup.add(rdbtnFacebook);
+		rdbtnFacebook.setBounds(342, 90, 155, 29);
+		contentPane.add(rdbtnFacebook);
 		
 		JRadioButton rdbtnGoogle = new JRadioButton("GOOGLE");
+		rdbtnGoogle.setSelected(true);
 		buttonGroup.add(rdbtnGoogle);
-		rdbtnGoogle.setBounds(581, 90, 155, 29);
+		rdbtnGoogle.setBounds(342, 54, 155, 29);
 		contentPane.add(rdbtnGoogle);
-		
 		
 	
 	}
