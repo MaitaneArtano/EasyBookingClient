@@ -15,17 +15,12 @@ public class UsuarioController
 		this.serviceLocator = serviceLocator;
 	}
 	
-	public boolean login(String email, String password, int plataforma)
+	public boolean login(String email, String password, int plataforma) throws RemoteException
 	{
-		try 
-		{
+		
+			System.out.println("Entra en usuarioController");
 			return this.serviceLocator.getService().login(email, password, plataforma);
-		} catch (RemoteException e)
-		{
-			// TODO Auto-generated catch block
-			System.err.println("# Error logging usuario: " + e);
-			return false;
-		}
+		
 	}
 	
 	public boolean signin(String email, String password)

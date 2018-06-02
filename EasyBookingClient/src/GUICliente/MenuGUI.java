@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.awt.event.ActionEvent;
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -177,7 +178,12 @@ public class MenuGUI extends JFrame
 					plataforma = 2;
 				}
 				
-				correcto = usuarioC.login(email, contrasena, plataforma);
+				try {
+					correcto = usuarioC.login(email, contrasena, plataforma);
+				} catch (RemoteException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 				if(correcto == true)
 				{
