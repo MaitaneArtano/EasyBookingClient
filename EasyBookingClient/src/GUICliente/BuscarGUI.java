@@ -30,7 +30,6 @@ public class BuscarGUI extends JFrame
 	private JTextField textFieldOrigen;
 	private JTextField textFieldDestino;
 	private JTextField textFieldIda;
-	private JTextField textFieldVuelta;
 	private JTextField textFieldID_vuelo;
 	CompleteVueloDTO miVueloDTO = new CompleteVueloDTO();
 	/**
@@ -44,7 +43,7 @@ public class BuscarGUI extends JFrame
 	{		
 		this.vueloC = vueloC;
 		setTitle("BUSCAR VUELOS");
-		setBounds(100, 100, 585, 467);
+		setBounds(100, 100, 335, 467);
 		getContentPane().setLayout(null);
 		
 		
@@ -84,24 +83,10 @@ public class BuscarGUI extends JFrame
 		getContentPane().add(textFieldIda);
 		textFieldIda.setColumns(10);
 		
-		JLabel lblFechaVuelta = new JLabel("Fecha vuelta");
-		lblFechaVuelta.setBounds(266, 256, 98, 20);
-		getContentPane().add(lblFechaVuelta);
-		
-		textFieldVuelta = new JTextField();
-		textFieldVuelta.setBounds(266, 277, 146, 26);
-		getContentPane().add(textFieldVuelta);
-		textFieldVuelta.setColumns(10);
-		
-		JLabel lblCantidad = new JLabel("Cantidad");
-		lblCantidad.setBounds(53, 316, 69, 20);
-		getContentPane().add(lblCantidad);
-		
 		textFieldID_vuelo.setEditable(true);
 		textFieldOrigen.setEditable(false);
 		textFieldDestino.setEditable(false);
 		textFieldIda.setEditable(false);
-		textFieldVuelta.setEditable(false);
 
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener()
@@ -111,12 +96,14 @@ public class BuscarGUI extends JFrame
 				
 				textFieldOrigen.getText();
 				textFieldDestino.getText();
-				textFieldIda.getText();
-				textFieldVuelta.getText();				
+				textFieldIda.getText();			
 				try 
 				{
 					miVueloDTO = vueloC.buscarVuelo(textFieldID_vuelo.getText());
-					JOptionPane.showMessageDialog(null, miVueloDTO.getDestino());
+					textFieldOrigen.setText(miVueloDTO.getOrigen());
+					textFieldDestino.setText(miVueloDTO.getDestino());
+					textFieldIda.setText(miVueloDTO.getFecha());
+
 					
 				} catch (RemoteException e1)
 				{
@@ -124,10 +111,9 @@ public class BuscarGUI extends JFrame
 				}
 				
 			}
-				
-			
+
 		});
-		btnBuscar.setBounds(320, 332, 115, 29);
+		btnBuscar.setBounds(73, 329, 115, 29);
 		getContentPane().add(btnBuscar);
 	}
 }
