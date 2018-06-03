@@ -1,9 +1,5 @@
 package GUICliente;
 
-import java.awt.EventQueue;
-
-import javax.swing.JInternalFrame;
-
 import ControllerCliente.UsuarioController;
 import ControllerCliente.VueloController;
 import javax.swing.JLabel;
@@ -13,11 +9,15 @@ import javax.swing.JFrame;
 import javax.swing.JSpinner;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JList;
 
-public class BuscarGUI extends JFrame {
+public class BuscarGUI extends JFrame
+{
 
-	private UsuarioController usuarioC;
-	private VueloController vueloC;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField textFieldOrigen;
 	private JTextField textFieldDestino;
 	private JTextField textFieldIda;
@@ -25,7 +25,8 @@ public class BuscarGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public BuscarGUI(UsuarioController usuarioC, VueloController vueloC) {
+	public BuscarGUI(UsuarioController usuarioC, VueloController vueloC)
+	{
 		setTitle("BUSCAR VUELOS");
 		setBounds(100, 100, 579, 438);
 		getContentPane().setLayout(null);
@@ -75,16 +76,16 @@ public class BuscarGUI extends JFrame {
 		getContentPane().add(spinner);
 
 		JButton btnBuscar = new JButton("BUSCAR");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnBuscar.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e)
+			{
 				
-				String origen=textFieldOrigen.getText();
-				String destino=textFieldDestino.getText();
-				String ida=textFieldIda.getText();
-				String vuelta=textFieldVuelta.getText();				
-				int cantidad=(int) spinner.getValue();
-				
-				boolean correcto;
+				textFieldOrigen.getText();
+				textFieldDestino.getText();
+				textFieldIda.getText();
+				textFieldVuelta.getText();				
+				spinner.getValue();
 				
 				//vuelo controllerrea jungoa eta hor si hay vuelos que coincidan devolvera una lista
 			/*	
@@ -108,7 +109,6 @@ public class BuscarGUI extends JFrame {
 		
 		btnBuscar.setBounds(320, 332, 115, 29);
 		getContentPane().add(btnBuscar);
-		
 		
 	}
 }
