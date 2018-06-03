@@ -103,6 +103,7 @@ public class BuscarGUI extends JFrame
 					textFieldOrigen.setText(miVueloDTO.getOrigen());
 					textFieldDestino.setText(miVueloDTO.getDestino());
 					textFieldIda.setText(miVueloDTO.getFecha());
+					btnBuscar.setEnabled(false);
 
 					
 				} catch (RemoteException e1)
@@ -116,12 +117,15 @@ public class BuscarGUI extends JFrame
 		btnBuscar.setBounds(73, 329, 115, 29);
 		getContentPane().add(btnBuscar);
 		
+		
+		int precio=miVueloDTO.getPrecio();
+		System.out.println(precio);
 		JButton btnPagar = new JButton("PAGAR");
 		btnPagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				setVisible(false);
-				PagoGUI pagar=new PagoGUI();
+				PagoGUI pagar=new PagoGUI(precio);
 				pagar.setVisible(true);
 			}
 		});

@@ -21,5 +21,13 @@ public class VueloController
 		vueloDetails = serviceLocator.getService().getVueloDetails(id_vuelo);
 		return vueloDetails;
 	}
+	
+	public boolean pago(int precio, textField.getText(), metodo) throws RemoteException
+	{
+		
+			System.out.println("Entra en usuarioController. Plataforma:" + plataforma);
+			return this.serviceLocator.getService().login(email, password, plataforma);
+		
+	}
 
 }
