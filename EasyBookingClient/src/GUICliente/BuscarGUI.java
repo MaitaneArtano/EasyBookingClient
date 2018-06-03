@@ -108,6 +108,8 @@ public class BuscarGUI extends JFrame
 					//Hemen supuestamente completeVueloDTO bat bueltauko luke eta hori beste lehion baten edo mostrau beharko litzeke eta erosteko aukera eman
 					miVueloDTO = vueloC.buscarVuelo(textFieldID_vuelo.getText());
 					JOptionPane.showMessageDialog(null, miVueloDTO.getDestino());
+					listaVuelosGUI objListaVuelos=new listaVuelosGUI();
+					objListaVuelos.setVisible(true);
 				} catch (RemoteException e1)
 				{
 					JOptionPane.showMessageDialog(null, "Introduce un id vuelo para la búsqueda");
