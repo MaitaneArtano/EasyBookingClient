@@ -1,12 +1,15 @@
 package GUICliente;
 
-import ControllerCliente.UsuarioController;
-import ControllerCliente.VueloController;
+
 import DTO.CompleteVueloDTO;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import ControllerCliente.UsuarioController;
+import ControllerCliente.VueloController;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JSpinner;
@@ -33,13 +36,20 @@ public class BuscarGUI extends JFrame
 	/**
 	 * Create the frame.
 	 */
+	
+	
+	
+	
 	public BuscarGUI(UsuarioController usuarioC, VueloController vueloC)
 	{
+		
+	
+		
 		
 		
 		this.vueloC = vueloC;
 		setTitle("BUSCAR VUELOS");
-		setBounds(100, 100, 579, 438);
+		setBounds(100, 100, 585, 467);
 		getContentPane().setLayout(null);
 		
 		
@@ -91,7 +101,12 @@ public class BuscarGUI extends JFrame
 		JLabel lblCantidad = new JLabel("Cantidad");
 		lblCantidad.setBounds(53, 316, 69, 20);
 		getContentPane().add(lblCantidad);
-
+		
+		textFieldID_vuelo.setEditable(true);
+		textFieldOrigen.setEditable(false);
+		textFieldDestino.setEditable(false);
+		textFieldIda.setEditable(false);
+		textFieldVuelta.setEditable(false);
 
 		JButton btnBuscar = new JButton("BUSCAR");
 		btnBuscar.addActionListener(new ActionListener()
@@ -108,8 +123,7 @@ public class BuscarGUI extends JFrame
 					//Hemen supuestamente completeVueloDTO bat bueltauko luke eta hori beste lehion baten edo mostrau beharko litzeke eta erosteko aukera eman
 					miVueloDTO = vueloC.buscarVuelo(textFieldID_vuelo.getText());
 					JOptionPane.showMessageDialog(null, miVueloDTO.getDestino());
-					listaVuelosGUI objListaVuelos=new listaVuelosGUI();
-					objListaVuelos.setVisible(true);
+					
 				} catch (RemoteException e1)
 				{
 					JOptionPane.showMessageDialog(null, "Introduce un id vuelo para la búsqueda");
