@@ -22,11 +22,11 @@ public class VueloController
 		return vueloDetails;
 	}
 	
-	public boolean pago(int precio, textField.getText(), metodo) throws RemoteException
+	public boolean pago(int precio, String num_tarjeta, int metodo) throws RemoteException
 	{
 		
-			System.out.println("Entra en usuarioController. Plataforma:" + plataforma);
-			return this.serviceLocator.getService().login(email, password, plataforma);
+			System.out.println("Entra en vueloController. metodo:" + metodo);
+			return this.serviceLocator.getService().pago(precio, num_tarjeta, metodo);
 		
 	}
 

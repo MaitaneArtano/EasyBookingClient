@@ -118,7 +118,7 @@ public class BuscarGUI extends JFrame
 		getContentPane().add(btnBuscar);
 		
 		
-		int precio=miVueloDTO.getPrecio();
+		int precio=(int) miVueloDTO.getPrecio();
 		System.out.println(precio);
 		JButton btnPagar = new JButton("PAGAR");
 		btnPagar.addActionListener(new ActionListener() {

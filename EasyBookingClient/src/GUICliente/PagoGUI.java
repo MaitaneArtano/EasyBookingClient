@@ -78,11 +78,12 @@ public class PagoGUI extends JFrame {
 					metodo=2;
 				}
 				
-				
-				try 
+			   String num_tarjeta=textField.getText();
+			
+					   try 
 				{
 					System.out.println("Metodo en  "+ metodo);
-					correcto = vueloC.pago(precio, textField.getText(), metodo);
+					correcto = vueloC.pago(precio, num_tarjeta, metodo);
 				} catch (RemoteException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
