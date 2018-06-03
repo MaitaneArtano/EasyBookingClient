@@ -43,7 +43,7 @@ public class BuscarGUI extends JFrame
 	{		
 		this.vueloC = vueloC;
 		setTitle("BUSCAR VUELOS");
-		setBounds(100, 100, 335, 467);
+		setBounds(100, 100, 463, 467);
 		getContentPane().setLayout(null);
 		
 		
@@ -115,5 +115,17 @@ public class BuscarGUI extends JFrame
 		});
 		btnBuscar.setBounds(73, 329, 115, 29);
 		getContentPane().add(btnBuscar);
+		
+		JButton btnPagar = new JButton("PAGAR");
+		btnPagar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				setVisible(false);
+				PagoGUI pagar=new PagoGUI();
+				pagar.setVisible(true);
+			}
+		});
+		btnPagar.setBounds(251, 329, 115, 29);
+		getContentPane().add(btnPagar);
 	}
 }

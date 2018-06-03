@@ -8,12 +8,18 @@ import javax.swing.JLabel;
 import ControllerCliente.VueloController;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
-public class PagoGUI extends JInternalFrame {
+public class PagoGUI extends JFrame {
 
 	 private VueloController vueloC;
+	 private JTextField textField;
+	 private JTextField textField_1;
 	
 	/**
 	 * Create the frame.
@@ -23,29 +29,38 @@ public class PagoGUI extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JLabel lblMtodoDePago = new JLabel("M\u00E9todo de pago");
-		lblMtodoDePago.setBounds(62, 222, 120, 20);
+		lblMtodoDePago.setBounds(57, 41, 120, 20);
 		getContentPane().add(lblMtodoDePago);
 		
-		JButton btnPaypal = new JButton("PAYPAL");
-		btnPaypal.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//hemendik vuelo controllerrea jungoa ta pagoa efectuatu ta factura vueltatu??
-			}
-		});
-		btnPaypal.setBounds(62, 276, 115, 29);
-		getContentPane().add(btnPaypal);
+		JRadioButton rdbtnVisa = new JRadioButton("VISA");
+		rdbtnVisa.setBounds(57, 73, 155, 29);
+		getContentPane().add(rdbtnVisa);
 		
-		JButton btnVisa = new JButton("VISA");
-		btnVisa.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				//hemendik vuelo controllerrea jungoa ta pagoa efectuatu ta factura vueltatu??
-			}
-		});
-		btnVisa.setBounds(238, 276, 115, 29);
-		getContentPane().add(btnVisa);
+		JRadioButton rdbtnPaypal = new JRadioButton("PAYPAL");
+		rdbtnPaypal.setBounds(57, 125, 155, 29);
+		getContentPane().add(rdbtnPaypal);
+		
+		JLabel lblNumeroDeTarjeta = new JLabel("Numero de tarjeta");
+		lblNumeroDeTarjeta.setBounds(57, 166, 145, 20);
+		getContentPane().add(lblNumeroDeTarjeta);
+		
+		textField = new JTextField();
+		textField.setBounds(57, 202, 146, 26);
+		getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		textField_1.setBounds(225, 248, 146, 26);
+		getContentPane().add(textField_1);
+		textField_1.setColumns(10);
+		
+		JLabel lblTotak = new JLabel("TOTAL");
+		lblTotak.setBounds(67, 251, 69, 20);
+		getContentPane().add(lblTotak);
+		
+		JButton btnComprar = new JButton("COMPRAR");
+		btnComprar.setBounds(256, 304, 115, 29);
+		getContentPane().add(btnComprar);
 
 	}
-
 }

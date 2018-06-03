@@ -131,10 +131,10 @@ public class MenuGUI extends JFrame
 				
 				if(correcto == true)
 				{
-					setVisible(false);
+					
 					BuscarGUI buscar = new BuscarGUI(usuarioC, vueloC);
 					JOptionPane.showMessageDialog(null, "Registro exitoso");
-					
+					setVisible(false);
 					buscar.setVisible(true);
 				}
 				
